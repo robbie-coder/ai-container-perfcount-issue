@@ -6,6 +6,8 @@ SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPref
 RUN iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
 RUN choco install openjdk11 -y
 
+#RUN net localgroup 'Performance Monitor Users' /add 'IIS APPPOOL\DefaultAppPool'
+
 WORKDIR "/perfcounters"
 
 ADD ["https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.1.1/applicationinsights-agent-3.1.1.jar", "."]
